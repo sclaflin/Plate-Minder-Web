@@ -1,0 +1,6 @@
+FROM nginx
+
+LABEL description="Plate-Minder Web UI"
+LABEL maintainer "seanclaflin@protonmail.com"
+
+COPY dist /usr/share/nginx/html

@@ -1,0 +1,13 @@
+body, html {
+	background: radial-gradient(circle at 10% 20%, rgb(32, 45, 58) 0%, rgb(13, 18, 25) 81.3%); 
+	background-attachment: fixed;
+	margin: 0;
+	padding: 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #fff;
+}
+plate-minder {
+	max-width: 50em;
+	margin: 1em auto 1em auto;
+}
