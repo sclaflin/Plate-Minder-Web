@@ -4,3 +4,5 @@ LABEL description="Plate-Minder Web UI"
 LABEL maintainer "seanclaflin@protonmail.com"
 
 COPY dist /usr/share/nginx/html
+
+CMD ["/bin/bash", "-c", "/usr/share/nginx/html/set-plate-minder-url.sh && nginx -g \"daemon off;\""]
