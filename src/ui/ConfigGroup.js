@@ -5,7 +5,6 @@ import ConfigItem from './ConfigItem';
 import { DEFAULT_GROUP_INFO } from '../lib/constants';
 
 export default class ConfigGroup extends LitElement {
-	static name = 'ConfigGroup';
 	static properties = {
 		config: {},
 		name: {},

@@ -2,7 +2,6 @@ import { html, css } from 'lit';
 import ConfigOption from './ConfigOption';
 
 export default class ObjectConfigOption extends ConfigOption {
-	static name = 'ObjectConfigOption';
 	static styles = [
 		...ConfigOption.styles,
 		css`

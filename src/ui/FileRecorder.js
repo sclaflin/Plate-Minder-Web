@@ -4,7 +4,6 @@ import API from '../lib/API';
 import { DEFAULT_RECORDER_PATTERN, DEFAULT_RECORDER_RETAIN_DAYS, FILE_RECORDER_ITEM_INFO } from '../lib/constants';
 
 export default class FileRecorder extends Recorder {
-	static name = 'FileRecorder';
 	static apiType = 'file';
 	
 	constructor(index, pattern = DEFAULT_RECORDER_PATTERN, retainDays = DEFAULT_RECORDER_RETAIN_DAYS) {

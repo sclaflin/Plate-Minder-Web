@@ -2,7 +2,6 @@ import { html } from 'lit';
 import ConfigOption from './ConfigOption';
 
 export default class BooleanConfigOption extends ConfigOption {
-	static name = 'BooleanConfigOption';
 	save(e) {
 		const options = {
 			detail: {

@@ -2,7 +2,6 @@ import { MOTION_FILTER_ITEM_INFO } from '../lib/constants';
 import Filter from './Filter';
 
 export default class MotionFilter extends Filter {
-	static name = 'MotionFilter';
 	static apiType = 'motion';
 
 	constructor(index) {

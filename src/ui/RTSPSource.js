@@ -4,7 +4,6 @@ import API from '../lib/API';
 import { DEFAULT_RTSP_SOURCE_URL, RTSP_SOURCE_ITEM_INFO } from '../lib/constants';
 
 export default class RTSPSource extends Source {
-	static name = 'RTSPSource';
 	static apiType = 'rtsp';
 	
 	constructor(index, name, captureInterval, url = DEFAULT_RTSP_SOURCE_URL) {

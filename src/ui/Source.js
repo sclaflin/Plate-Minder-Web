@@ -10,7 +10,6 @@ import {
 import Dialog from './Dialog';
 
 export default class Source extends ConfigItem {
-	static name = 'Source';
 	static styles = [
 		ConfigItem.styles,
 		css`

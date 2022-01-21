@@ -6,7 +6,6 @@ import API, { FileNotFoundError } from '../lib/API';
 import { DEFAULT_FILTER_DEBUG } from '../lib/constants';
 
 export default class Filter extends ConfigItem {
-	static name = 'Filter';
 	static styles = [
 		...ConfigItem.styles,
 		css`

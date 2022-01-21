@@ -5,7 +5,6 @@ import FileRecorder from './FileRecorder';
 import { RECORDER_GROUP_INFO } from '../lib/constants';
 
 export default class Recorders extends ConfigGroup {
-	static name = 'Recorders';
 	constructor() {
 		super();
 

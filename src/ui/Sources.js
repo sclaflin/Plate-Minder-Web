@@ -5,7 +5,6 @@ import { SOURCE_GROUP_INFO } from '../lib/constants';
 
 
 export default class Sources extends ConfigGroup {
-	static name = 'Sources';
 	constructor() {
 		super();
 

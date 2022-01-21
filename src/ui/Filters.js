@@ -4,7 +4,6 @@ import MaskFilter from './MaskFilter';
 import MotionFilter from './MotionFilter';
 
 export default class Filters extends ConfigGroup {
-	static name = 'Filters';
 	constructor() {
 		super();
 

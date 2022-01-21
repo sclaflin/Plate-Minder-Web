@@ -5,7 +5,6 @@ import API from '../lib/API';
 import ObjectConfigOption from './ObjectConfigOption';
 
 export default class MQTTRecorder extends Recorder {
-	static name = 'MQTTRecorder';
 	static apiType = 'mqtt';
 	
 	constructor(

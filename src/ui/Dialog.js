@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 import { baseStyle } from './styles';
 
 export default class Dialog extends LitElement {
-	static name = 'Dialog';
 	static properties = {
 		title: {},
 		content: {},

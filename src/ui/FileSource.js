@@ -4,7 +4,6 @@ import API from '../lib/API';
 import { DEFAULT_FILE_SOURCE_FILE, FILE_SOURCE_ITEM_INFO } from '../lib/constants';
 
 export default class FileSource extends Source {
-	static name = 'FileSource';
 	static apiType = 'file';
 
 	constructor(index, name, captureInterval, file = DEFAULT_FILE_SOURCE_FILE) {

@@ -4,7 +4,6 @@ import { baseStyle } from './styles';
 const NOOP = () => {};
 
 export default class ConfigOption extends LitElement {
-	static name = 'ConfigOption';
 	static properties = {
 		label: {},
 		name: {},

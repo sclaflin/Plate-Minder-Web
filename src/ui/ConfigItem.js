@@ -6,7 +6,6 @@ import Dialog from './Dialog';
 import { DEFAULT_ITEM_INFO, NOOP } from '../lib/constants';
 
 export default class ConfigItem extends LitElement {
-	static name = 'ConfigItem';
 	static apiType = '???';
 	static properties = {
 		type: {},

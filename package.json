@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"debug": "parcel",
-		"build": "rm -rf dist && parcel build",
+		"build": "rm -rf dist && parcel build --no-optimize --no-scope-hoist",
 		"buildImage": "sudo docker build -f Dockerfile.prod -t sclaflin/plate-minder-web ."
 	},
 	"author": "Sean Claflin",

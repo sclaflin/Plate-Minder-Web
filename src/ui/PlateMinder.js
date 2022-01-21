@@ -11,7 +11,6 @@ import Dialog from './Dialog';
 
 
 export default class PlateMinder extends LitElement {
-	static name = 'PlateMinder';
 	static properties = {
 		config: {}
 	};

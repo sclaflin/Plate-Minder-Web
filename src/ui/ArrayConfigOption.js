@@ -2,7 +2,6 @@ import { html, css } from 'lit';
 import ConfigOption from './ConfigOption';
 
 export default class ArrayConfigOption extends ConfigOption {
-	static name = 'ConfigOption';
 	static styles = [
 		...ConfigOption.styles,
 		css`
