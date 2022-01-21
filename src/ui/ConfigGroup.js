@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { baseStyle } from './styles';
 import { infoSquare } from '../lib/images';
 import ConfigItem from './ConfigItem';
