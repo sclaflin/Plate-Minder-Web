@@ -1,5 +1,5 @@
 import { html, css } from 'lit';
-import { infoSquare } from '../lib/images';
+import { infoSquare, alert } from '../lib/images';
 import ConfigItem from './ConfigItem';
 import BooleanConfigOption from './BooleanConfigOption';
 import API, { FileNotFoundError } from '../lib/API';
@@ -11,6 +11,15 @@ export default class Filter extends ConfigItem {
 		css`
 			.debug-image {
 				width: 100%
+			}
+			.alert {
+				border-radius: 0.25em;
+				padding: 0.25em;
+				color: yellow;
+			}
+			.alert .icon {
+				float: left;
+				margin: 0.25em;
 			}
 		`
 	];
@@ -47,15 +56,23 @@ export default class Filter extends ConfigItem {
 			throw new TypeError('debugImage must be a boolean.');
 		
 		this.#debugImage = v;
-		if(this.#debugImageTimeout)
-			clearTimeout(this.#debugImageTimeout);
-
-		if(this.debugImage)
-			this.getDebugImage();
-		else if(this.debugImageUrl) {
+		if(this.debugImageUrl) {
 			URL.revokeObjectURL(this.debugImageUrl);
 			this.#debugImageUrl = null;
 		}
+		if(this.#debugImageTimeout)
+			clearTimeout(this.#debugImageTimeout);
+
+		if(this.debugImage) {
+			this.getDebugImage();
+			this.status = html`
+				<div class="alert">
+					<span class="icon">${alert}</span> Leaving debug enabled can cause a significant amount of disk writes over time.  Please disable debug after the filter has been configured.
+				</div>
+			`;
+		}
+		else
+			this.status = null;
 		
 		this.requestUpdate();
 	}

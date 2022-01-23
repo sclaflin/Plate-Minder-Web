@@ -30,6 +30,10 @@ export const baseStyle = css`
 		color: #ff5f57;
 		background: #233348;
 	}
+	.alert {
+		color: #yellow;
+		background: #233348;
+	}
 	input {
 		border: none;
 		background: #233348;
