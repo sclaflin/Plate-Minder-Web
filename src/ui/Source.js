@@ -1,11 +1,14 @@
 import { html, css } from 'lit';
 import ConfigItem from './ConfigItem';
 import ConfigOption from './ConfigOption';
+import ArrayConfigOption from './ArrayConfigOption';
 import API from '../lib/API';
 import {
 	DEFAULT_SOURCE_NAME,
 	DEFAULT_SOURCE_CAPTURE_INTERVAL,
-	DEFAULT_SOURCE_STATUS_INTERVAL
+	DEFAULT_SOURCE_STATUS_INTERVAL,
+	DEFAULT_SOURCE_PRE_INPUT_ARGS,
+	DEFAULT_SOURCE_PRE_OUTPUT_ARGS
 } from '../lib/constants';
 import Dialog from './Dialog';
 
@@ -25,7 +28,13 @@ export default class Source extends ConfigItem {
 	];
 	#checkStatusTimeout = null;
 	
-	constructor(index, name = DEFAULT_SOURCE_NAME, captureInterval = DEFAULT_SOURCE_CAPTURE_INTERVAL) {
+	constructor(
+		index,
+		name = DEFAULT_SOURCE_NAME,
+		captureInterval = DEFAULT_SOURCE_CAPTURE_INTERVAL,
+		preInputArgs = DEFAULT_SOURCE_PRE_INPUT_ARGS,
+		preOutputArgs = DEFAULT_SOURCE_PRE_OUTPUT_ARGS
+	) {
 		super(index);
 
 		this.apiSaveMethod = API.addSource;
@@ -42,6 +51,18 @@ export default class Source extends ConfigItem {
 				'captureInterval',
 				captureInterval,
 				API.updateSourceCaptureInterval
+			),
+			new ArrayConfigOption(
+				'Pre-Input Args',
+				'preInputArgs',
+				preInputArgs,
+				API.updateSourcePreInputArgs
+			),
+			new ArrayConfigOption(
+				'Pre-Output Args',
+				'preOutputArgs',
+				preOutputArgs,
+				API.updateSourcePreOutputArgs
 			)
 		);
 	}
@@ -85,10 +106,13 @@ export default class Source extends ConfigItem {
 	static fromObject(config) {
 		if(config === null || typeof config !== 'object')
 			throw new TypeError('config must be an Object.');
+		console.log(config);
 		return new this(
 			config.index,
 			config.name,
-			config.captureInterval
+			config.captureInterval,
+			config.preInputArgs || [],
+			config.preOutputArgs || []
 		);
 	}
 }

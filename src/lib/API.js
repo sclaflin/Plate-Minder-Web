@@ -99,6 +99,40 @@ export default class API {
 			throw new Error(`Failed to update Source Capture Interval: ${data ?? response.statusText}`);
 		return data;
 	}
+	static async updateSourcePreInputArgs(index, preInputArgs) {
+		if(!Number.isInteger(index))
+			throw new TypeError('index must be an integer.');
+		if(!Array.isArray(preInputArgs))
+			throw new TypeError('preInputArgs must be an Array.');
+
+		const requestOptions = {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ preInputArgs })
+		};
+		const response = await fetch(`${await API.getPlateMinderUrl()}source/${index}/preInputArgs`, requestOptions);
+		const data = await response.json();
+		if(!response.ok)
+			throw new Error(`Failed to update Source Pre-Input Args: ${data ?? response.statusText}`);
+		return data;
+	}
+	static async updateSourcePreOutputArgs(index, preOutputArgs) {
+		if(!Number.isInteger(index))
+			throw new TypeError('index must be an integer.');
+		if(!Array.isArray(preOutputArgs))
+			throw new TypeError('preOutputArgs must be an Array.');
+
+		const requestOptions = {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ preOutputArgs })
+		};
+		const response = await fetch(`${await API.getPlateMinderUrl()}source/${index}/preOutputArgs`, requestOptions);
+		const data = await response.json();
+		if(!response.ok)
+			throw new Error(`Failed to update Source Pre-Output Args: ${data ?? response.statusText}`);
+		return data;
+	}
 	static async updateSourceUrl(index, url) {
 		if(!Number.isInteger(index))
 			throw new TypeError('index must be an integer.');
