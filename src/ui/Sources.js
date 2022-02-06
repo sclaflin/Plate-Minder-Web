@@ -1,5 +1,6 @@
 import ConfigGroup from './ConfigGroup';
 import RTSPSource from './RTSPSource';
+import MJPEGSource from './MJPEGSource';
 import FileSource from './FileSource';
 import { SOURCE_GROUP_INFO } from '../lib/constants';
 
@@ -12,6 +13,7 @@ export default class Sources extends ConfigGroup {
 		
 		this.addType(
 			RTSPSource,
+			MJPEGSource,
 			FileSource
 		);
 	}
