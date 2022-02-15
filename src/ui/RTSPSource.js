@@ -6,8 +6,8 @@ import { DEFAULT_RTSP_SOURCE_URL, RTSP_SOURCE_ITEM_INFO } from '../lib/constants
 export default class RTSPSource extends Source {
 	static apiType = 'rtsp';
 	
-	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, url = DEFAULT_RTSP_SOURCE_URL) {
-		super(index, name, captureInterval, preInputArgs, preOutputArgs);
+	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart, url = DEFAULT_RTSP_SOURCE_URL) {
+		super(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart);
 		
 		this.info = RTSP_SOURCE_ITEM_INFO;
 		this.addOption(
@@ -29,6 +29,7 @@ export default class RTSPSource extends Source {
 			config.captureInterval,
 			config.preInputArgs,
 			config.preOutputArgs,
+			config.alwaysRestart,
 			config.url
 		);
 	}

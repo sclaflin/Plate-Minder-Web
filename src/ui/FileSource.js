@@ -6,8 +6,8 @@ import { DEFAULT_FILE_SOURCE_FILE, FILE_SOURCE_ITEM_INFO } from '../lib/constant
 export default class FileSource extends Source {
 	static apiType = 'file';
 
-	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, file = DEFAULT_FILE_SOURCE_FILE) {
-		super(index, name, captureInterval, preInputArgs, preOutputArgs);
+	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart, file = DEFAULT_FILE_SOURCE_FILE) {
+		super(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart);
 
 		this.info = FILE_SOURCE_ITEM_INFO;
 		this.addOption(
@@ -29,6 +29,7 @@ export default class FileSource extends Source {
 			config.captureInterval,
 			config.preInputArgs,
 			config.preOutputArgs,
+			config.alwaysRestart,
 			config.file
 		);
 	}

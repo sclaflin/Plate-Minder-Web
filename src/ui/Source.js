@@ -8,9 +8,11 @@ import {
 	DEFAULT_SOURCE_CAPTURE_INTERVAL,
 	DEFAULT_SOURCE_STATUS_INTERVAL,
 	DEFAULT_SOURCE_PRE_INPUT_ARGS,
-	DEFAULT_SOURCE_PRE_OUTPUT_ARGS
+	DEFAULT_SOURCE_PRE_OUTPUT_ARGS,
+	DEFAULT_SOURCE_ALWAYS_RESTART
 } from '../lib/constants';
 import Dialog from './Dialog';
+import BooleanConfigOption from './BooleanConfigOption';
 
 export default class Source extends ConfigItem {
 	static styles = [
@@ -33,7 +35,8 @@ export default class Source extends ConfigItem {
 		name = DEFAULT_SOURCE_NAME,
 		captureInterval = DEFAULT_SOURCE_CAPTURE_INTERVAL,
 		preInputArgs = DEFAULT_SOURCE_PRE_INPUT_ARGS,
-		preOutputArgs = DEFAULT_SOURCE_PRE_OUTPUT_ARGS
+		preOutputArgs = DEFAULT_SOURCE_PRE_OUTPUT_ARGS,
+		alwaysRestart = DEFAULT_SOURCE_ALWAYS_RESTART
 	) {
 		super(index);
 
@@ -63,6 +66,12 @@ export default class Source extends ConfigItem {
 				'preOutputArgs',
 				preOutputArgs,
 				API.updateSourcePreOutputArgs
+			),
+			new BooleanConfigOption(
+				'Always Restart',
+				'alwaysRestart',
+				alwaysRestart,
+				API.updateSourceAlwaysRestart
 			)
 		);
 	}
@@ -112,7 +121,8 @@ export default class Source extends ConfigItem {
 			config.name,
 			config.captureInterval,
 			config.preInputArgs || [],
-			config.preOutputArgs || []
+			config.preOutputArgs || [],
+			config.alwaysRestart
 		);
 	}
 }

@@ -133,6 +133,24 @@ export default class API {
 			throw new Error(`Failed to update Source Pre-Output Args: ${data ?? response.statusText}`);
 		return data;
 	}
+	static async updateSourceAlwaysRestart(index, alwaysRestart) {
+		if(!Number.isInteger(index))
+			throw new TypeError('index must be an integer.');
+		if(typeof alwaysRestart !== 'boolean')
+			throw new TypeError('alwaysRestart must be a boolean.');
+
+		const requestOptions = {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ alwaysRestart })
+		};
+		const response = await fetch(`${await API.getPlateMinderUrl()}source/${index}/alwaysRestart`, requestOptions);
+		const data = await response.json();
+		if(!response.ok)
+			throw new Error(`Failed to update Source Always Restart: ${data ?? response.statusText}`);
+		return data;
+
+	}
 	static async updateSourceUrl(index, url) {
 		if(!Number.isInteger(index))
 			throw new TypeError('index must be an integer.');

@@ -6,8 +6,8 @@ import { DEFAULT_MJPEG_SOURCE_URL, MJPEG_SOURCE_ITEM_INFO } from '../lib/constan
 export default class MJPEGSource extends Source {
 	static apiType = 'mjpeg';
 	
-	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, url = DEFAULT_MJPEG_SOURCE_URL) {
-		super(index, name, captureInterval, preInputArgs, preOutputArgs);
+	constructor(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart, url = DEFAULT_MJPEG_SOURCE_URL) {
+		super(index, name, captureInterval, preInputArgs, preOutputArgs, alwaysRestart);
 		
 		this.info = MJPEG_SOURCE_ITEM_INFO;
 		this.addOption(
@@ -29,6 +29,7 @@ export default class MJPEGSource extends Source {
 			config.captureInterval,
 			config.preInputArgs,
 			config.preOutputArgs,
+			config.alwaysRestart,
 			config.url
 		);
 	}

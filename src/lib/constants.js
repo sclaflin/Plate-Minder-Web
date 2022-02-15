@@ -18,6 +18,7 @@ export const DEFAULT_SOURCE_CAPTURE_INTERVAL = 1;
 export const DEFAULT_SOURCE_STATUS_INTERVAL = 3000;
 export const DEFAULT_SOURCE_PRE_INPUT_ARGS = [];
 export const DEFAULT_SOURCE_PRE_OUTPUT_ARGS = [];
+export const DEFAULT_SOURCE_ALWAYS_RESTART = false;
 export const DEFAULT_FILE_SOURCE_FILE = './path/to/your/file.mp4';
 export const DEFAULT_RTSP_SOURCE_URL = 'rtsp://your-camera-url';
 export const DEFAULT_MJPEG_SOURCE_URL = 'rtsp://your-camera-url';
