@@ -28,5 +28,6 @@ export const DEFAULT_RECORDER_PATTERN = '/images/{{DATE}}/{{SOURCE}}/{{TIME}}_{{
 export const DEFAULT_RECORDER_RETAIN_DAYS = 30;
 export const DEFAULT_RECORDER_URL = 'mqtt://your-mqtt-server';
 export const DEFAULT_RECORDER_BASE_TOPIC = 'plate-minder';
+export const DEFAULT_RECORDER_ENABLE_IMAGE = true;
 export const DEFAULT_RECORDER_MQTT_OPTIONS = { username: 'your-username', password: 'your-password' };
 export const DEFAULT_RECORDER_HASS_DISCOVERY = { enable: false, discoveryPrefix: 'homeassistant' };
