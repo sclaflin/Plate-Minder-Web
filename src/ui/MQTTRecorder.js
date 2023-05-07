@@ -11,6 +11,7 @@ export default class MQTTRecorder extends Recorder {
 		index,
 		url = DEFAULT_RECORDER_URL,
 		baseTopic = DEFAULT_RECORDER_BASE_TOPIC,
+		enableImage = DEFAULT_RECORDER_ENABLE_IMAGE,
 		mqttOptions = DEFAULT_RECORDER_MQTT_OPTIONS,
 		hassDiscovery = DEFAULT_RECORDER_HASS_DISCOVERY
 	) {
@@ -29,6 +30,12 @@ export default class MQTTRecorder extends Recorder {
 				'baseTopic',
 				baseTopic,
 				API.updateRecorderBaseTopic
+			),
+			new ConfigOption(
+				'Enable Image',
+				'enableImage',
+				enableImage,
+				API.updateRecorderEnableImage
 			),
 			new ObjectConfigOption(
 				'MQTT Options',
@@ -52,6 +59,7 @@ export default class MQTTRecorder extends Recorder {
 			config.index,
 			config.url,
 			config.baseTopic,
+			config.enableImage,
 			config.mqttOptions,
 			config.hassDiscovery
 		);

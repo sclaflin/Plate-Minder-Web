@@ -397,6 +397,26 @@ export default class API {
 			throw new Error(`Failed to update Recorder Base Topic: ${data ?? response.statusText}`);
 		return data;
 	}
+	static async updateRecorderEnableImage(index, enableImageVal) {
+		if(!Number.isInteger(index))
+			throw new TypeError('index must be an integer.');
+		if(typeof enableImageVal !== 'string' && (enableImageVal !== 'true' || enableImageVal !== 'false'))
+			throw new TypeError('enableImage must be a string of true or false.');
+
+		//coerce the string into a boolean
+		const enableImage = enableImageVal === 'true';
+
+		const requestOptions = {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ enableImage })
+		};
+		const response = await fetch(`${await API.getPlateMinderUrl()}recorder/${index}/enableImage`, requestOptions);
+		const data = await response.json();
+		if(!response.ok)
+			throw new Error(`Failed to update Recorder Enable Image: ${data ?? response.statusText}`);
+		return data;
+	}
 	static async updateRecorderMqttOptions(index, mqttOptions) {
 		if(!Number.isInteger(index))
 			throw new TypeError('index must be an integer.');
